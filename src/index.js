@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import HemisphereDisplay from './HemisphereDisplay';
 
 class App extends React.Component {
-    constructor(props) {
-        super(props)
-        //if it is null -> it is blank
-        this.state = { latitude: null, errorMessage: '' }
+
+    state = { latitude: null, errorMessage: '' }
+
+    componentDidMount() {
         //geolocation service
         window.navigator.geolocation.getCurrentPosition(
             (position) => {
@@ -17,10 +18,6 @@ class App extends React.Component {
         );
     }
 
-    componentDidMount() {
-        console.log('componentDidMount')
-    }
-
     componentDidUpdate() {
         console.log('componentDidUpdate')
     }
@@ -29,7 +26,7 @@ class App extends React.Component {
             return <div>{this.state.errorMessage}</div>
         }
         if (!this.state.errorMessage && this.state.latitude) {
-            return <div>{this.state.latitude}</div>
+            return <div><HemisphereDisplay latitude={this.state.latitude} /></div>
         }
         else {
             return <div>Loading ...</div>
