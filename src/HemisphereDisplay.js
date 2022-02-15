@@ -22,7 +22,7 @@ const HemisphereDisplay = ({ latitude }) => {
         <div className={hemisphere}>
             <div className='ui raised text container segment'>
                 <div className='image'>
-                    <img src={picture} alt="hemisphere picture" />
+                    <img src={picture} alt="hemisphere" />
                 </div>
                 <div className='ui teal bottom attached label'>
                     {text}
